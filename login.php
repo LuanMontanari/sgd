@@ -5,6 +5,8 @@
     if(isset($_SESSION['login'])){
         header('location:index.php');
     }
+    //$msg=null;
+    //$msg = $_GET['msg'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -49,6 +51,8 @@
         <div class="text-center">
           <a class="d-block small mt-3" href="register.html">Solicitar Cadastro</a>
           <a class="d-block small" href="forgot-password.html">Solicitar Nova Senha</a>
+          
+      
         </div>
       </div>
     </div>

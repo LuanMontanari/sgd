@@ -13,8 +13,10 @@
  */
 
 namespace dao;
-require_once '../util/Connection.php';
-require_once  '../model/Usuario.php';
+require_once 'C:/wamp/www/sgd/util/Connection.php';
+require_once  'C:/wamp/www/sgd/model/Usuario.php';
+
+use \util\Connection; 
 
 use PDO;
 class UsuarioDao {
@@ -63,7 +65,7 @@ class UsuarioDao {
          
          if($result){
              $reg = $result[0];
-             $usuario = new \model\Usuario($reg['id'], $reg['nome'], $reg['email'], $reg['login'], $reg['senha'], $reg['tipo']);
+             $usuario = new \model\Usuario($reg['id'], $reg['nome'], $reg['email'], $reg['login'], $reg['senha'], $reg['tipo'], $reg['status']);
              return $usuario;
          } else {
              return null;
@@ -93,8 +95,10 @@ class UsuarioDao {
         $result = $sel->fetchAll();
         
         if($result){
-            
-             return $result;
+            $reg = $result[0];
+            $usuario = new \model\Usuario($reg['id'], $reg['nome'], $reg['email'], $reg['login'], $reg['senha'], $reg['tipo'], $reg['status']);
+            return $usuario;
+             //return $result;
          } else {
              return null;
          }

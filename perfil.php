@@ -1,5 +1,15 @@
-<?php include 'cabecalho.php'; 
-
+<?php 
+require_once '/util/seguranca.php';
+ require_once '/dao/UsuarioDao.php';
+ require_once '/model/Usuario.php';
+ $usuarioDao = new dao\UsuarioDao();
+ $usuario = new model\Usuario();
+ 
+ $id=$_SESSION['id'];
+ 
+ $usuario = $usuarioDao->find($id);
+ 
+ include 'cabecalho.php'; 
 ?>
 
 <div class="container-fluid">
@@ -10,7 +20,7 @@
                     Nome:
                 </div>
                 <div class="card-body">
-                    <?= $_SESSION['nome'] ?>
+                    <?= $usuario->getNomeUsuario() ?>
                 </div>
 
             </div>
@@ -20,7 +30,7 @@
                     Login:
                 </div>
                 <div class="card-body">
-                    <?= $_SESSION['login'] ?>
+                    <?= $usuario->getLoginUsuario(); ?>
                 </div>
 
             </div>
@@ -30,12 +40,12 @@
                     Email:
                 </div>
                 <div class="card-body">
-                    <?= $_SESSION['email'] ?>
+                    <?= $usuario->getEmailUsuario() ?>
                 </div>
 
             </div>
 
-            <a href="#" class="btn btn-primary"> Alterar</a>
+           <?= "<a href=alterar_usuario.php?id=".$id." class=\"btn btn-primary\"> Alterar</a>" ?>
         </div>
     </div>
 </div> 

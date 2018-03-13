@@ -19,14 +19,16 @@ class Usuario {
     private $loginUsuario;
     private $senhaUsuario;
     private $tipoUsuario;
-    
-    function __construct($idUsuario=null , $nomeUsuario=null, $emailUsuario=null, $loginUsuario=null, $senhaUsuario=null, $tipoUsuario=null) {
+    private $statusUsuario;
+            
+    function __construct($idUsuario=null , $nomeUsuario=null, $emailUsuario=null, $loginUsuario=null, $senhaUsuario=null, $tipoUsuario=null, $statusUsuario=null) {
         $this->idUsuario = $idUsuario;
         $this->nomeUsuario = $nomeUsuario;
         $this->emailUsuario = $emailUsuario;
         $this->loginUsuario = $loginUsuario;
         $this->senhaUsuario = $senhaUsuario;
         $this->tipoUsuario = $tipoUsuario;
+        $this->statusUsuario=$statusUsuario;
     }
 
     function getIdUsuario() {
@@ -52,7 +54,12 @@ class Usuario {
     function getTipoUsuario() {
         return $this->tipoUsuario;
     }
+    
+    function getStatusUsuario() {
+        return $this->statusUsuario;
+    }
 
+        
     function setIdUsuario($idUsuario) {
         $this->idUsuario = $idUsuario;
     }
@@ -75,6 +82,10 @@ class Usuario {
 
     function setTipoUsuario($tipoUsuario) {
         $this->tipoUsuario = $tipoUsuario;
+    }
+
+    function setStatusUsuario($statusUsuario) {
+        $this->statusUsuario = $statusUsuario;
     }
 
 
