@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Listar Usuario</title>
+        <title>Novo Chamado</title>
         <!-- Bootstrap core CSS-->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom fonts for this template-->
@@ -125,60 +125,104 @@
                     <li class="breadcrumb-item">
                         <a href="index.php">Home</a>
                     </li>
-                    <li class="breadcrumb-item active">Listar Usuarios</li>
+                    <li class="breadcrumb-item active">Cadastro de Chamado</li>
 
                 </ol>
                 <!-- Icon Cards-->
 
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-8">
                         <!-- Example Bar Chart Card-->
                         <div class="card mb-3">
                             <div class="card-header">
-                                <i class="fa fa-user"></i> Lista de Usuarios</div>
+                                <i class="fa fa-user"></i> Novo Chamado</div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-group">
+                                        <div class="form-row">
+                                            <div class="col-md-12">
+                                                <label for="nome">Assunto Chamado:</label>
+                                                <input class="form-control" id="" type="text"  placeholder="" required="">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="nome">Nome Requerente:</label>
+                                                <input class="form-control" id="" type="text"  placeholder="" required="" readonly="" value="Nome Usuário Requerente">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <label for="data">*Local</label>
+                                                <select id="selectbasic" name="tipousuario" class="form-control">
+                                                    <option value="1">LABORATÓRIO 1</option>
+                                                    <option value="2">LABORATÓRIO 2</option>
+                                                    <option value="2">LABORATÓRIO 3</option>
+                                                    <option value="2" disabled="">SECRETARIA</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="data">Data:</label>
+                                                <input class="form-control" id="" type="date" placeholder="" readonly="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                      <div class="form-group">
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <label for="data">*Elemento</label>
+                                                <select id="selectbasic" name="tipousuario" class="form-control">
+                                                    <option value="1">COMPUTADOR 01</option>
+                                                    <option value="2">COMPUTADOR 02</option>
+                                                    <option value="3">COMPUTADOR 03</option>
+                                                    <option value="4" disabled="">COMPUTADOR 04</option>
+                                                </select>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <!-- Textarea -->
+                                    <div class="form-group">
+                                        <div class="form-row">
+                                            <label for="nome">*Descrição Requerente:</label>                                                        
+                                            <textarea class="form-control" id="textarea" name="textarea">Descreva o problema de forma detalhada</textarea>                                       
+                                        </div>
+                                    </div>                                   
+
+                                    <hr>
+                                    <div class="col-md-10">
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Cadastrar</button>
+                                        <button type="reset" class="btn btn-primary"><i class="fa fa-refresh"></i> limpar</button>
+                                        <a href="index.php"><button type="button" class="btn btn-danger"><i class="fa fa-remove"></i> Cancelar</button></a>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer small text-muted">*Campos Obrigatórios</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <!-- Example Pie Chart Card-->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <i class="fa fa-info-circle"></i> Informações</div>
                             <div class="card-body">
 
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Nome</th>
-                                                <th>Tipo</th>
-                                                <th>Data</th>
-                                                <th>Alterar</th>
-                                                <th>View</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Nome</th>
-                                                <th>Tipo</th>
-                                                <th>Data</th>
-                                                <th>Alterar</th>
-                                                <th>View</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <span>Campo <strong>Data</strong> pega horário local</span>
 
                             </div>
+                            <div class="card-footer small text-muted"></div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
         </div>
+
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

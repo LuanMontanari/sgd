@@ -13,7 +13,7 @@
                         </a>
                         <ul class="sidenav-second-level collapse" id="collapseComponents">
                             <li>
-                                <a href="pesquisarUsuario.php">Pesquisar</a>
+                                <a href="listar_usuario.php">Pesquisar</a>
                             </li>
                             <li>
                                 <a href="cadastrarUsuario.php">Cadastrar</a>

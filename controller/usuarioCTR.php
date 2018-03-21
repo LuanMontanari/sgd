@@ -35,11 +35,16 @@ $nome = $_POST['nome'];
 $email = $_POST['email'];
 $login = $_POST['login'];
 $senha = $_POST['senha'];
-$tipo = $_POST['tipo'];
-
+$tipo=$_POST['tipo'];
 $usuario = new Usuario($id, $nome, $email, $login, $senha, $tipo);
 $usuarioDao = new UsuarioDao();
-$usuarioDao->alterar($usuario);
+if($senha==null || $senha==''){
+    $usuarioDao->alterar($usuario);
+} else {
+    $usuarioDao->alterar_com_senha($usuario);
+}
+
+
 }
 
 if (isset($_GET['acao']) && $_GET['acao'] == 'editar') {

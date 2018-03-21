@@ -24,7 +24,7 @@ $usuario = $usuarioDao->logar($login, $senha);
 
 if($usuario==null){
     
-    $msg="<p>usuário e senha inválidos</p>";
+    $msg="usuário e senha inválidos";
     header('location:../login.php?msg='.$msg);
 } else {
     session_start();

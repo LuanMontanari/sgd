@@ -75,3 +75,4 @@ if ($_SESSION['tipo'] == 'adiministrador') {
             </div>
         </nav>
         <div class="content-wrapper">
+          
