@@ -41,7 +41,7 @@
                         </a>
                         <ul class="sidenav-second-level collapse" id="collapseMulti">
                             <li>
-                                <a href="cadastrarChamado.php">Novo Chamado</a>
+                                <a href="cadastrar_chamado.php">Novo Chamado</a>
                             </li>
                             <li>
                                 <a href="pesquisarChamado.php">Acompanhar Chamado</a>

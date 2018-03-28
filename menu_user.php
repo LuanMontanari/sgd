@@ -10,7 +10,7 @@
                                 <a href="cadastrarChamado.php">Novo Chamado</a>
                             </li>
                             <li>
-                                <a href="pesquisarChamado.php">Meus Chamados</a>
+                                <a href="pesquisar_chamado.php">Meus Chamados</a>
                             </li>
                             <li>
                                 <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>

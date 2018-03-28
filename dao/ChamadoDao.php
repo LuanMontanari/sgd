@@ -31,11 +31,11 @@ class ChamadoDao {
     }
 
     public function inserir($chamado = null) {
-        $var = $this->connection->prepare("insert into " . self::TABLE_CHAMADO . "(id_requerente, data_emissao, desc_requerente) values(:id_requerente, :data_emissao :desc_requerente)");
+        $var = $this->connection->prepare(" insert into " . self::TABLE_CHAMADO . " (id_requerente, data_emissao, desc_requerente) values(:id_requerente, :data_emissao, :desc_requerente)");
 
-        $var->bindValue('id_requerente', $chamado->getNomeUsuario(), PDO::PARAM_INT);
-        $var->bindValue('data_emissao', $chamado->getEmailUsuario(), PDO::PARAM_STR);
-        $var->bindValue('desc_requerente', $chamado->getLoginUsuario(), PDO::PARAM_STR);
+        $var->bindValue('id_requerente', $chamado->getIdRequerenteChamado(), PDO::PARAM_INT);
+        $var->bindValue('data_emissao', $chamado->getDataEmissaoChamado(), PDO::PARAM_STR);
+        $var->bindValue('desc_requerente', $chamado->getDescricaoRequerenteChamado(), PDO::PARAM_STR);
 
         $this->connection->beginTransaction();
         $var->execute();
