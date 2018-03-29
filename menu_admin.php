@@ -44,7 +44,7 @@
                                 <a href="cadastrar_chamado.php">Novo Chamado</a>
                             </li>
                             <li>
-                                <a href="pesquisarChamado.php">Acompanhar Chamado</a>
+                                <a href="listar_chamado.php">Chamados</a>
                             </li>
                             <li>
                                 <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>

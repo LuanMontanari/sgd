@@ -101,11 +101,14 @@ class ChamadoDao {
 
     public function alterar_adiministardor(Chamado $chamado = null) {
         $var = $this->connection->prepare("update " .self::TABLE_CHAMADO .
-                " set prioridade = :prioridade, status = :status, desc_supervisor = :desc_supervisor where id = :id ");
+                " set id_requerente =:id_requerente, id_tecnico =:id_supervisor, id_requerente =:id_requerente, prioridade = :prioridade, status = :status, desc_supervisor = :desc_supervisor where id = :id ");
         $var->bindValue('id', $chamado->getIdChamado(), PDO::PARAM_INT);
+        $var->bindValue('id_requerente', $chamado->getIdRequerenteChamado(), PDO::PARAM_INT);
+        $var->bindValue('id_tecnico', $chamado->getIdTecnicoChamado(), PDO::PARAM_INT);
+        $var->bindValue('id_supervisor', $chamado->getIdSupervisorChamado(), PDO::PARAM_INT);
         $var->bindValue('prioridade', $chamado->getPrioridadeChamado(), PDO::PARAM_STR);
         $var->bindValue('status', $chamado->getStatusChamado(), PDO::PARAM_STR);
-        $var->bindValue('desc_tecnico', $chamado->getDescricaoTecnicoChamado(), PDO::PARAM_STR);
+        $var->bindValue('desc_supervisor', $chamado->getDescricaoTecnicoChamado(), PDO::PARAM_STR);
         
         $this->connection->beginTransaction();
         $var->execute();

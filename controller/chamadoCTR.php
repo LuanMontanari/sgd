@@ -25,9 +25,38 @@ if (isset($_POST['cadastrar'])) {
 
     $chamadoDao = new ChamadoDao();
     $chamadoDao->inserir($chamado);
+    header('location:../cadastrar_chamado.php');
 }
 
-/*if(isset($_GET['acao'])&& $_GET['acao']=='listar'){
-   $chamadoDao = new ChamadoDao();
- * $chamado = $chamadoDao->listar();
-}*/
+if (isset($_GET['acao']) && $_GET['acao'] == 'deletar') {
+    $chamadoDao = new ChamadoDao();
+    $id = (int) $_GET['id'];
+    $chamadoDao->delete($id);
+}
+
+if (isset($_POST['atualizar'])) {
+    $id = $_POST['id'];
+    $id_requerente = $_POST['id_requerente'];
+    $id_tecnico = $_POST['id_tecnico'];
+    $id_supervisor = $_POST['id_supervisor'];
+    $prioriodade = $_POST['prioridade'];
+    $status = $_POST['status'];
+    $desc_requerente = $_POST['desc_requerente'];
+    $desc_tecnico = $_POST['desc_tecnico'];
+    $desc_supervisor = $_POST['desc_supervisor'];
+
+    if ($_SESSION['tipo'] == 'adiministrador') {
+        $chamado = new Chamado($id, $id_requerente, $id_tecnico, $id_supervisor, $prioriodade, $status, $desc_requerente, $desc_tecnico, $desc_supervisor, null);
+        $chamadoDao = new ChamadoDao();
+        $chamadoDao->alterar_adiministardor($chamado);
+    } else if ($_SESSION['tipo'] == 'tecnico'){
+        //$chamado = new Chamado($id, $id_requerente, $id_tecnico, $id_supervisor, $prioriodade, $status, $desc_requerente, $desc_tecnico, $desc_supervisor, null);
+        $chamado = new Chamado();
+        $chamado->setIdChamado($id);
+        $chamado->setStatusChamado($status);
+        $chamado->setDescricaoTecnicoChamado($desc_tecnico);
+        
+        $chamadoDao = new ChamadoDao();
+        $chamadoDao->alterar_tecnico($chamado);
+    }
+}
