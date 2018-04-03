@@ -65,7 +65,7 @@ class ChamadoDao {
 
         if ($result) {
             $reg = $result[0];
-            $chamado = new Chamado($reg['id'], $reg['id_requerente'], $reg['id_tecnico'], $reg['id_supervisor'], $reg['prioridade'], $reg['status'], $reg['data_emissao'], $reg['data_aceitacao'], $reg['data_conclusao'], $reg['desc_requerente'], $reg['desc_tecnico'], $reg['data_supervisor'], $reg['dependencia_externa']);
+            $chamado = new Chamado($reg['id'], $reg['id_requerente'], $reg['id_tecnico'], $reg['id_supervisor'], $reg['prioridade'], $reg['status'], $reg['data_emissao'], $reg['data_aceitacao'], $reg['data_conclusao'], $reg['desc_requerente'], $reg['desc_tecnico'], $reg['desc_supervisor'], $reg['dependencia_externa']);
             return $chamado;
         } else {
             return null;
@@ -101,7 +101,7 @@ class ChamadoDao {
 
     public function alterar_adiministardor(Chamado $chamado = null) {
         $var = $this->connection->prepare("update " .self::TABLE_CHAMADO .
-                " set id_requerente =:id_requerente, id_tecnico =:id_supervisor, id_requerente =:id_requerente, prioridade = :prioridade, status = :status, desc_supervisor = :desc_supervisor where id = :id ");
+                " set id_requerente =:id_requerente, id_tecnico =:id_tecnico, id_supervisor =:id_supervisor, prioridade = :prioridade, status = :status, desc_supervisor = :desc_supervisor where id = :id ");
         $var->bindValue('id', $chamado->getIdChamado(), PDO::PARAM_INT);
         $var->bindValue('id_requerente', $chamado->getIdRequerenteChamado(), PDO::PARAM_INT);
         $var->bindValue('id_tecnico', $chamado->getIdTecnicoChamado(), PDO::PARAM_INT);

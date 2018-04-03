@@ -1,7 +1,7 @@
 <?php
 
 namespace controller;
-
+require_once '../util/seguranca.php';
 require_once '../model/Chamado.php';
 require_once '../dao/ChamadoDao.php';
 
@@ -35,9 +35,9 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'deletar') {
 }
 
 if (isset($_POST['atualizar'])) {
-    $id = $_POST['id'];
-    $id_requerente = $_POST['id_requerente'];
-    $id_tecnico = $_POST['id_tecnico'];
+    $id =  $_POST['id'];
+    $id_requerente =  $_POST['id_requerente'];
+    $id_tecnico =  $_POST['id_tecnico'];
     $id_supervisor = $_POST['id_supervisor'];
     $prioriodade = $_POST['prioridade'];
     $status = $_POST['status'];

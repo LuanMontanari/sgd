@@ -4,6 +4,7 @@ require_once'/cabecalho.php';
 require_once '/dao/UsuarioDao.php';
 require_once '/model/Usuario.php';
 
+expulsa_usuario();
 $id = $_GET['id'];
 $usuario = new model\Usuario();
 $usuarioDao = new dao\UsuarioDao();

@@ -1,7 +1,9 @@
 <?php
+require_once '/util/seguranca.php';
 require_once '/dao/ChamadoDao.php';
 include 'cabecalho.php';
 
+expulsa_usuario();
 use \dao\ChamadoDao;
 
 $chamadoDao = new ChamadoDao;
@@ -82,7 +84,7 @@ $chamado = $chamadoDao->listar();
                                         <td><?= $key['desc_tecnico']; ?></td>
                                         <td><?= $key['desc_supervisor']; ?></td>
                                         
-                                        <td><?= "<a class=\"btn btn-warning\" href=alterar_cahado.php?id=" . $key[0] . ">Editar</a>"; ?> 
+                                        <td><?= "<a class=\"btn btn-warning\" href=alterar_chamado.php?id=" . $key[0] . ">Editar</a>"; ?> 
                                             <?= "<a class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#excluir\" onclick=\"carregarId(".$key[0].");\" href=usuario.php?acao=deletar&id=" . $key[0] . ">Excluir</a>" ?></td>
                                     </tr>
                                 <?php } ?>
@@ -103,7 +105,7 @@ $chamado = $chamadoDao->listar();
                             </button>
                         </div>
                         <div class="modal-body">
-                            Deseja Realmente excluir esse usuário?
+                            Deseja Realmente excluir esse chamado?
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
