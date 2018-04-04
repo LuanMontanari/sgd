@@ -105,9 +105,9 @@ include 'cabecalho.php';
                                  <div class="col-md-6">
                                     <label for="data">*Prioridade</label>
                                     <select id="selectbasic" name="prioridade" class="form-control">
-                                        <option <?php if ($prioriodade_chamado== 'alta') { ?> selected="" <?php } ?> value="alta">Alta</option>
-                                        <option <?php if ($prioriodade_chamado== 'media') { ?> selected="" <?php } ?> value="media">Media</option>
-                                        <option <?php if ($prioriodade_chamado == 'baixa') { ?> selected="" <?php } ?> value="baixa">Baixa</option>
+                                        <option <?=($prioriodade_chamado== 'alta')?  'selected':'';  ?> value="alta">Alta</option>
+                                        <option <?=($prioriodade_chamado== 'media')?  'selected':'';  ?> value="media">Media</option>
+                                        <option <?=($prioriodade_chamado == 'baixa')? 'selected' :''; ?> value="baixa">Baixa</option>
                                         
                                     </select>
                                 </div>    
@@ -127,7 +127,7 @@ include 'cabecalho.php';
                             <div class="form-group">
                                 <div class="form-row">
                                     <label for="nome">*Descrição do Técnico:</label>                                                        
-                                    <textarea class="form-control" id="textarea" name="desc_tecnico" placeholder="Descreva o problema de forma detalhada" required=""   ><?= $chamado->getDescricaoTecnicoChamado() ?></textarea>                                       
+                                    <textarea class="form-control" id="textarea" name="desc_tecnico" placeholder="Descreva o problema de forma detalhada" <?= ($_SESSION['tipo']=='tecnico')? 'required': ''; ?>    ><?= $chamado->getDescricaoTecnicoChamado() ?></textarea>                                       
                                 </div>
                             </div>
                         <?php } ?>
@@ -136,7 +136,7 @@ include 'cabecalho.php';
                             <div class="form-group">
                                 <div class="form-row">
                                     <label for="nome">*Descrição do Supervisor:</label>                                                        
-                                    <textarea class="form-control" id="textarea" name="desc_supervisor" placeholder="Descreva o problema de forma detalhada" required=""  ><?= $chamado->getDescricaoSupervisorChamado() ?></textarea>                                       
+                                    <textarea class="form-control" id="textarea" name="desc_supervisor" placeholder="Descreva o problema de forma detalhada"   ><?= $chamado->getDescricaoSupervisorChamado() ?></textarea>                                       
                                 </div>
                             </div>
                         <?php } ?>

@@ -36,17 +36,43 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'deletar') {
 
 if (isset($_POST['atualizar'])) {
     $id =  $_POST['id'];
-    $id_requerente =  $_POST['id_requerente'];
-    $id_tecnico =  $_POST['id_tecnico'];
-    $id_supervisor = $_POST['id_supervisor'];
-    $prioriodade = $_POST['prioridade'];
+    if($_POST['id_requerente']== ''){
+        $id_requerente = null;
+    } else {
+        $id_requerente =  $_POST['id_requerente'];
+    }
+    
+    if($_POST['id_tecnico']==''){
+        $id_tecnico =null;
+    }else{
+        $id_tecnico =  $_POST['id_tecnico'];
+    }
+    
+    if($_POST['id_supervisor']==''){
+        $id_supervisor =null;
+    }else{
+        $id_supervisor =  $_POST['id_supervisor'];
+    }
+    
+    $prioridade = $_POST['prioridade'];
     $status = $_POST['status'];
     $desc_requerente = $_POST['desc_requerente'];
     $desc_tecnico = $_POST['desc_tecnico'];
     $desc_supervisor = $_POST['desc_supervisor'];
 
     if ($_SESSION['tipo'] == 'adiministrador') {
-        $chamado = new Chamado($id, $id_requerente, $id_tecnico, $id_supervisor, $prioriodade, $status, $desc_requerente, $desc_tecnico, $desc_supervisor, null);
+       // $chamado = new Chamado($id, $id_requerente, null, null, $prioriodade, $status, $desc_requerente, $desc_tecnico, $desc_supervisor, null);
+       $chamado = new Chamado(); 
+       $chamado->setIdChamado($id);
+       $chamado->setIdRequerenteChamado($id_requerente);
+       $chamado->setIdTecnicoChamado($id_tecnico);
+       $chamado->setIdSupervisorChamado($id_supervisor);
+       $chamado->setPrioridadeChamado($prioridade);
+       $chamado->setStatusChamado($status);
+       $chamado->setDescricaoRequerenteChamado($desc_requerente);
+       $chamado->setDescricaoTecnicoChamado($desc_tecnico);
+       $chamado->setDescricaoSupervisorChamado($desc_supervisor);
+        var_dump($chamado);
         $chamadoDao = new ChamadoDao();
         $chamadoDao->alterar_adiministardor($chamado);
     } else if ($_SESSION['tipo'] == 'tecnico'){
@@ -59,4 +85,5 @@ if (isset($_POST['atualizar'])) {
         $chamadoDao = new ChamadoDao();
         $chamadoDao->alterar_tecnico($chamado);
     }
+    header('location:../alterar_chamado.php');
 }
