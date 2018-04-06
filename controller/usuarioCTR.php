@@ -33,13 +33,15 @@ if (isset($_POST['atualizar'])) {
     $login = $_POST['login'];
     $senha = $_POST['senha'];
     $tipo = $_POST['tipo'];
-    $usuario = new Usuario($id, $nome, $email, $login, $senha, $tipo);
+    $status = $_POST['status'];
+    $usuario = new Usuario($id, $nome, $email, $login, $senha, $tipo, $status);
     $usuarioDao = new UsuarioDao();
     if ($senha == null || $senha == '') {
         $usuarioDao->alterar($usuario);
     } else {
         $usuarioDao->alterar_com_senha($usuario);
     }
+    header('location:../listar_usuario.php');
 }
 
 if (isset($_GET['acao']) && $_GET['acao'] == 'editar') {

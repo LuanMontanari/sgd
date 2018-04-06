@@ -74,12 +74,13 @@ class UsuarioDao {
      
     public function alterar(\model\Usuario $usuario = null){
         $var = $this->connection->prepare("update " .self::TABLE_USUARIO .
-                " set nome = :nome, email = :email, login = :login, tipo = :tipo where id = :id ");
+                " set nome = :nome, email = :email, login = :login, tipo = :tipo, status = :status where id = :id ");
         $var->bindValue('id', $usuario->getIdUsuario(), PDO::PARAM_INT);
         $var->bindValue('nome', $usuario->getNomeUsuario(), PDO::PARAM_STR);
         $var->bindValue('email', $usuario->getEmailUsuario(), PDO::PARAM_STR);
         $var->bindValue('login', $usuario->getLoginUsuario(), PDO::PARAM_STR);
         $var->bindValue('tipo', $usuario->getTipoUsuario(), PDO::PARAM_STR);
+        $var->bindValue('status', $usuario->getStatusUsuario(), PDO::PARAM_STR);
         
         $this->connection->beginTransaction();
         $var->execute();

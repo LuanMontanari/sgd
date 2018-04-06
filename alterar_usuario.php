@@ -4,12 +4,12 @@ require_once'/cabecalho.php';
 require_once '/dao/UsuarioDao.php';
 require_once '/model/Usuario.php';
 
-expulsa_usuario();
 $id = $_GET['id'];
 $usuario = new model\Usuario();
 $usuarioDao = new dao\UsuarioDao();
 
 $usuario = $usuarioDao->find($id);
+$status = $usuario->getStatusUsuario();
 ?>
 
 <div class="container-fluid">
@@ -49,6 +49,20 @@ $usuario = $usuarioDao->find($id);
                             </div>
                         </div>
 
+                        <?php if ($_SESSION['tipo'] == 'adiministrador') { ?>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <label for="status">*Status</label>
+                                        <select id="selectbasic" name="status" class="form-control">
+                                            <option <?= ($status == 'desativado') ? 'selected' : '' ?> value="desativado">Desativado</option>
+                                            <option <?= ($status == 'pendente') ? 'selected' : '' ?>value="pendente">Pendente</option>
+                                            <option <?= ($status == 'ativo') ? 'selected' : '' ?> value="ativo">Ativo</option>           
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
                         <div class="form-group">
 
                             <input class="form-control" id="tipo" name="tipo" type="hidden" value="<?= $usuario->getTipoUsuario() ?>" >
