@@ -5,6 +5,8 @@ if ($_SESSION['tipo'] == 'adiministrador') {
     $location = 'menu_admin.php';
 } else if($_SESSION['tipo'] == 'usuario') {
     $location = 'menu_user.php';
+}else if($_SESSION['tipo']=='tecnico'){
+    $location = 'menu_tecnico.php';
 }
 
  

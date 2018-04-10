@@ -10,6 +10,8 @@ $usuarioDao = new dao\UsuarioDao();
 
 $usuario = $usuarioDao->find($id);
 $status = $usuario->getStatusUsuario();
+$tipo = $usuario->getTipoUsuario();
+
 ?>
 
 <div class="container-fluid">
@@ -60,13 +62,23 @@ $status = $usuario->getStatusUsuario();
                                             <option <?= ($status == 'ativo') ? 'selected' : '' ?> value="ativo">Ativo</option>           
                                         </select>
                                     </div>
+
+                                    <div class="col-md-6">
+                                        <label for="tipo">*Tipo</label>
+                                        <select id="selectbasic" name="tipo" class="form-control">
+                                            <option <?= ($tipo == 'usuario') ? 'selected' : '' ?> value="usuario">Usuário</option>
+                                            <option <?= ($tipo == 'tecnico') ? 'selected' : '' ?>value="tecnico">Tecnico</option>
+                                            <option <?= ($tipo == 'supervisor') ? 'selected' : '' ?> value="supervisor">Supervisor</option>
+                                            <option <?= ($tipo == 'adiministrador') ? 'selected' : '' ?> value="adiministrador">Adiministrador</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         <?php } ?>
                         <div class="form-group">
-
-                            <input class="form-control" id="tipo" name="tipo" type="hidden" value="<?= $usuario->getTipoUsuario() ?>" >
-
+                            <?php if ($_SESSION['tipo'] == 'usuario') { ?>
+                                <input class="form-control" id="tipo" name="tipo" type="hidden" value="<?= $usuario->getTipoUsuario() ?>" >
+                            <?php } ?>
                             <label for="email">*Endereço email:</label>
                             <input class="form-control" id="" name="email" type="email" value="<?= $usuario->getEmailUsuario() ?>"  placeholder="" required="">
 

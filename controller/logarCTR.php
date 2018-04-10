@@ -44,13 +44,8 @@ if ($usuario == null) {
         header('location:../index.php');
     }
     
-    header('location:../login.php?msg=' . $msg);
 
-    //var_dump($_SESSION);
-
-    /* if($_SESSION['tipo']='usuario'){
-      header();
-      } else if ($_SESSION['tipo']='administrador') {
-      header();
-      } */
 }
+
+header('location:../login.php?msg=' . $msg);
+?>

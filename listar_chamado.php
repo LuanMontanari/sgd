@@ -1,6 +1,7 @@
 <?php
 require_once '/util/seguranca.php';
 require_once '/dao/ChamadoDao.php';
+require_once '/util/data.php';
 include 'cabecalho.php';
 
 expulsa_usuario();
@@ -30,7 +31,7 @@ $chamado = $chamadoDao->listar();
             <!-- Example Bar Chart Card-->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class="fa fa-user"></i> Lista de Chamados</div>
+                    <i class="fa fa-list"></i> Lista de Chamados</div>
                 <div class="card-body">
 
                     <div class="table-responsive">
@@ -49,6 +50,7 @@ $chamado = $chamadoDao->listar();
                                     <th>Descrição do requerente </th>
                                     <th>Descrição do Tecnico </th>
                                     <th>Descrição do Supervisor </th>
+                                    <th>Ações </th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -65,6 +67,7 @@ $chamado = $chamadoDao->listar();
                                     <th>Descrição do requerente </th>
                                     <th>Descrição do Tecnico </th>
                                     <th>Descrição do Supervisor </th>
+                                    <th>Ações </th>
                                     
                                 </tr>
                             </tfoot>
@@ -77,7 +80,7 @@ $chamado = $chamadoDao->listar();
                                         <td><?= $key['id_supervisor']; ?></td>
                                         <td><?= $key['prioridade']; ?></td>
                                         <td><?= $key['status']; ?></td>
-                                        <td><?= $key['data_emissao']; ?></td>
+                                        <td><?= convertDate($key['data_emissao']); ?></td>
                                         <td><?= $key['data_aceitacao']; ?></td>
                                         <td><?= $key['data_conclusao']; ?></td>
                                         <td><?= $key['desc_requerente']; ?></td>

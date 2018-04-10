@@ -32,11 +32,11 @@ if (isset($_SESSION['login'])) {
                     <form action="controller/logarCTR.php" method="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Login</label>
-                            <input class="form-control" id="login" name="login" type="text" aria-describedby="emailHelp" placeholder="login">
+                            <input class="form-control" id="login" name="login" type="text" aria-describedby="emailHelp" placeholder="login" required="">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Senha</label>
-                            <input class="form-control" id="exampleInputPassword1" name="senha" type="password" placeholder="Password">
+                            <input class="form-control" id="exampleInputPassword1" name="senha" type="password" placeholder="senha" required="">
                         </div>
                         <div class="form-group">
                             <div class="form-check">
@@ -47,8 +47,8 @@ if (isset($_SESSION['login'])) {
                         <input type="submit" class="btn btn-primary btn-block" value="entrar" >
                     </form>
                     <div class="text-center">
-                        <a class="d-block small mt-3" href="register.html">Solicitar Cadastro</a>
-                        <a class="d-block small" href="forgot-password.html">Solicitar Nova Senha</a>
+                        <a class="d-block small mt-3" href="cadastro.php">Solicitar Cadastro</a>
+                        <a class="d-block small" href="#">Solicitar Nova Senha</a>
 
 
                     </div>

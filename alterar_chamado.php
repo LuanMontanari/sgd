@@ -1,4 +1,4 @@
-<?php
+ <?php
 require_once'/util/seguranca.php';
 
 require_once '/dao/ChamadoDao.php';

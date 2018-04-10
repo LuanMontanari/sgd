@@ -35,6 +35,7 @@ if (isset($_POST['atualizar'])) {
     $tipo = $_POST['tipo'];
     $status = $_POST['status'];
     $usuario = new Usuario($id, $nome, $email, $login, $senha, $tipo, $status);
+    
     $usuarioDao = new UsuarioDao();
     if ($senha == null || $senha == '') {
         $usuarioDao->alterar($usuario);

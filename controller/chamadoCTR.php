@@ -4,6 +4,7 @@ namespace controller;
 require_once '../util/seguranca.php';
 require_once '../model/Chamado.php';
 require_once '../dao/ChamadoDao.php';
+require_once '../util/data.php';
 
 use model\Chamado;
 use dao\ChamadoDao;
@@ -12,8 +13,6 @@ if (isset($_POST['cadastrar'])) {
     $chamado = new Chamado();
     session_start();
 
-    date_default_timezone_set("America/Sao_Paulo");
-    setlocale(LC_ALL, 'pt_BR');
 
     $id_requerente = $_SESSION['id'];
     $data_emissao = date("Y-m-d");
@@ -85,5 +84,5 @@ if (isset($_POST['atualizar'])) {
         $chamadoDao = new ChamadoDao();
         $chamadoDao->alterar_tecnico($chamado);
     }
-    header('location:../alterar_chamado.php');
+    header('location:../listar_chamado.php');
 }
